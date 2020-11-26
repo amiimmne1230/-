@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -12,8 +12,13 @@
     <script type="text/javascript">
     function Reset() {
     var canvas = document.getElementById("#canvas"); 
-    canvas.height= document.documentElement.clientHeight;
-    canvas.width = document.documentElement.clientWidth; 
+
+    document.getElementById("#canvas").style.width = "100px";
+    document.getElementById("#canvas").style.height = "100px";
+    document.getElementById("gameContainer").style.width = "100px";
+    document.getElementById("gameContainer").style.height = "100px";
+          //发送指令修改Unity中分辨率的大小
+          
     console.log(canvas.width );
     } 
     </script>
@@ -21,8 +26,7 @@
 
  </head>
  <body onload="Reset()" onresize="Reset()">
-      <div class="webgl-content"style="width: 50%; height: 50%" >
-      <div id="gameContainer" style="width: 50%; height:50%"></div>
-    </div>
+      
+    gameInstance.SendMessage("GameObject","ResetSolution",100 + ":" + 100);
   </body>
 </html>
